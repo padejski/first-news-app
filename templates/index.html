@@ -44,6 +44,9 @@
                   "properties": {
                     "full_name": "{{ obj.full_name }}",
                     "age": "{{obj.age}}",
+                    "gender": "{{obj.gender}}",
+                    "race": "{{obj.race}}",
+                    "address": "{{obj.address}}",
                     "id": "{{ obj.id }}"
                   },
                   "geometry": {
@@ -57,9 +60,9 @@
            var dataLayer = L.geoJson(data, {
                 onEachFeature: function(feature, layer) {
                     layer.bindPopup(
-                        '<a href="' + feature.properties.id + '/">' +
+                        '<h2><a href="' + feature.properties.id + '/">' +
                             feature.properties.full_name +
-                        '</a>' + ", " + feature.properties.age
+                        '</a></h2>' + feature.properties.age + ", " + feature.properties.gender+ ", " + feature.properties.race + '</br>' + feature.properties.address
                     );
                 }
             });
